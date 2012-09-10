@@ -1,4 +1,4 @@
 MusicXML
 ========
 
-Create a XML based mp3 filas
+Create a XML based mp3 files
