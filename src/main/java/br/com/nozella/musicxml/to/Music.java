@@ -2,27 +2,47 @@ package br.com.nozella.musicxml.to;
 
 public class Music {
 	
-	private String name;
-	private String albumName;
-	private String artistName;
-
-	public String getName() {
-		return name;
+	private String tiltle;
+	
+	public Music(String tiltle){
+		this.setTiltle(tiltle);
 	}
-	public void setName(String name) {
-		this.name = name;
+	
+	public String getTiltle() {
+		return tiltle;
 	}
-	public String getAlbumName() {
-		return albumName;
-	}
-	public void setAlbumName(String albumName) {
-		this.albumName = albumName;
-	}
-	public String getArtistName() {
-		return artistName;
-	}
-	public void setArtistName(String artistName) {
-		this.artistName = artistName;
+	
+	public void setTiltle(String tiltle) {
+		this.tiltle = tiltle;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((tiltle == null) ? 0 : tiltle.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Music other = (Music) obj;
+		if (tiltle == null) {
+			if (other.tiltle != null)
+				return false;
+		} else if (!tiltle.equals(other.tiltle))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Music [tiltle=%s]", tiltle);
+	}
 }

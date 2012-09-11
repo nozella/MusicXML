@@ -2,6 +2,7 @@ package br.com.nozella.musicxml.facade.impl;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -23,7 +24,8 @@ public class FileProcessorFacadeImpl implements FileProcessorFacade {
 		log.debug(args);
 		
 		this.validateArguments(args);
-		List<Artist> artists = fileProcessorService.generateArtistList(fileProcessorService.getFileList(new File(args.get(0))));
+		Set<Artist> artistList = fileProcessorService.generateArtistList(fileProcessorService.getFileList(new File(args.get(0))));
+		log.debug(artistList);
 		
 		throw new SystemException("not supported yet");
 	}
