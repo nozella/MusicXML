@@ -1,9 +1,18 @@
 package br.com.nozella.musicxml.main;
 
-public class App {
+import java.util.Arrays;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+public class App {
+	private static Log log = LogFactory.getLog( App.class );
+	
 	public static void main(String[] args) {
-		System.out.println("Teste");
+		log.debug("initialise");
+		for(String arg : Arrays.asList(args)) {
+			log.debug(arg);
+		}
 	}
 
 }
