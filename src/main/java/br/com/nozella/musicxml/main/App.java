@@ -5,12 +5,13 @@ import java.io.File;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import br.com.nozella.musicxml.facade.FileProcessorFacade;
-import br.com.nozella.musicxml.facade.impl.FileProcessorFacadeImpl;
+import br.com.nozella.musicxml.service.FileProcessorService;
+import br.com.nozella.musicxml.service.impl.FileProcessorServiceImpl;
 
 public class App extends Thread {
 	private static Log log = LogFactory.getLog(App.class);
-	private static FileProcessorFacade fileProcessor = new FileProcessorFacadeImpl();
+	
+	private static FileProcessorService fileProcessorService = new FileProcessorServiceImpl();
 	
 	public static void main(String[] args) {
 		if (args.length != 2) {
@@ -26,7 +27,7 @@ public class App extends Thread {
 		
 		log.info("initializing...");
 		try {
-			fileProcessor.processFile(args[0], args[1]);
+			fileProcessorService.processFile(args[0], args[1]);
 		} catch (Exception e) {
 			log.error("error when processing file", e);
 		}

@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,6 +36,10 @@ public class FileProcessorServiceImpl implements FileProcessorService {
 	private static Log log = LogFactory.getLog(FileProcessorServiceImpl.class);
 	private static Log sameLineLogger = LogFactory.getLog("sameLineLogger");
 
+	public FileProcessorServiceImpl(){
+		Logger.getLogger("org.jaudiotagger").setLevel(Level.OFF);
+	}
+	
 	public void processFile(String directoryPath, String path) throws SystemException {
 		this.generateXml(this.generateArtistList(this.getFileList(new File(directoryPath))), path);
 	}
