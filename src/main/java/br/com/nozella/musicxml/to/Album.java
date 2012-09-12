@@ -7,10 +7,10 @@ import java.util.Map;
 public class Album {
 
 	private String name;
-	private Map<String, Music> musics;
+	private Map<Integer, Music> musics;
 	
 	public Album(String name) {
-		this.musics = new HashMap<String, Music>();
+		this.musics = new HashMap<Integer, Music>();
 		this.setName(name);
 	}
 	
@@ -19,7 +19,7 @@ public class Album {
 	}
 	
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.toUpperCase();
 	}
 	
 	public Collection<Music> getMusics() {
@@ -33,7 +33,7 @@ public class Album {
 	}
 	
 	public void putMusic(Music music) {
-		this.musics.put(music.getTiltle(), music);
+		this.musics.put(music.hashCode(), music);
 	}
 	
 	public Music getMusic(String tiltleMusic) {

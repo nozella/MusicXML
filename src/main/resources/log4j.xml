@@ -8,15 +8,15 @@
 		</layout>
 	</appender>
 
-	<appender name="sameLineAppender" class="org.apache.log4j.ConsoleAppender">
+	<appender name="sameRowAppender" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%m" />
 		</layout>
 	</appender>
 
-	<logger name="sameLineLogger">
+	<logger name="sameRowLogger">
 		<level value="INFO" />
-		<appender-ref ref="sameLineAppender" />
+		<appender-ref ref="sameRowAppender" />
 	</logger>
 
 	<logger name="br.com.nozella">

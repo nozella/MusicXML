@@ -7,10 +7,10 @@ import java.util.Map;
 public class Artist {
 	
 	private String name;
-	private Map<String, Album> albuns;
+	private Map<Integer, Album> albuns;
 	
 	public Artist(String name){
-		this.albuns = new HashMap<String, Album>();
+		this.albuns = new HashMap<Integer, Album>();
 		this.setName(name);
 	}
 
@@ -19,7 +19,7 @@ public class Artist {
 	}
 	
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.toUpperCase();
 	}
 	
 	public Collection<Album> getAlbuns() {
@@ -33,7 +33,7 @@ public class Artist {
 	}
 	
 	public void putAlbum(Album album) {
-		this.albuns.put(album.getName(), album);
+		this.albuns.put(album.hashCode(), album);
 	}
 	
 	public Album getAlbum(String albumName) {

@@ -13,7 +13,7 @@ public class Music {
 	}
 	
 	public void setTiltle(String tiltle) {
-		this.tiltle = tiltle;
+		this.tiltle = tiltle.toUpperCase();
 	}
 
 	@Override
