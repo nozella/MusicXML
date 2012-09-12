@@ -33,11 +33,11 @@ public class Album {
 	}
 	
 	public void putMusic(Music music) {
-		this.musics.put(music.hashCode(), music);
+		this.musics.put(music.getTiltle().hashCode(), music);
 	}
 	
 	public Music getMusic(String tiltleMusic) {
-		return this.musics.get(tiltleMusic);
+		return this.musics.get(tiltleMusic.toUpperCase().hashCode());
 	}
 
 	@Override

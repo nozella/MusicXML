@@ -21,10 +21,10 @@ public class Library {
 	}
 	
 	public void putArtist(Artist artist) {
-		this.artists.put(artist.hashCode(), artist);
+		this.artists.put(artist.getName().hashCode(), artist);
 	}
 	
 	public Artist getArtist(String artistName) {
-		return this.artists.get(artistName);
+		return this.artists.get(artistName.toUpperCase().hashCode());
 	}
 }

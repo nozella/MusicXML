@@ -33,11 +33,11 @@ public class Artist {
 	}
 	
 	public void putAlbum(Album album) {
-		this.albuns.put(album.hashCode(), album);
+		this.albuns.put(album.getName().hashCode(), album);
 	}
 	
 	public Album getAlbum(String albumName) {
-		return this.albuns.get(albumName);
+		return this.albuns.get(albumName.toUpperCase().hashCode());
 	}
 
 	@Override
