@@ -1,5 +1,6 @@
 package br.com.nozella.musicxml.to;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,20 +22,22 @@ public class Album {
 		this.name = name;
 	}
 	
-	public Map<String, Music> getMusics() {
-		return this.musics;
+	public Collection<Music> getMusics() {
+		return this.musics.values();
 	}
 	
-	public void setMusics(Map<String, Music> musics) {
-		this.musics = musics;
+	public void setMusics(Collection<Music> musics) {
+		for (Music music : musics) {
+			this.putMusic(music);
+		}
 	}
 	
 	public void putMusic(Music music) {
-		this.getMusics().put(music.getTiltle(), music);
+		this.musics.put(music.getTiltle(), music);
 	}
 	
 	public Music getMusic(String tiltleMusic) {
-		return this.getMusics().get(tiltleMusic);
+		return this.musics.get(tiltleMusic);
 	}
 
 	@Override
@@ -64,7 +67,7 @@ public class Album {
 
 	@Override
 	public String toString() {
-		return String.format("Album [name=%s, musics=%s]", name, musics);
+		return String.format("Album [name=%s, musics=%s]", this.getName(), this.getMusics());
 	}
 	
 }

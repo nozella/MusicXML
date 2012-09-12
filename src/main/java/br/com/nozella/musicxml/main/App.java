@@ -1,8 +1,6 @@
 package br.com.nozella.musicxml.main;
 
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.File;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,20 +8,27 @@ import org.apache.commons.logging.LogFactory;
 import br.com.nozella.musicxml.facade.FileProcessorFacade;
 import br.com.nozella.musicxml.facade.impl.FileProcessorFacadeImpl;
 
-public class App {
-	private static Log log = LogFactory.getLog( App.class );
-	
+public class App extends Thread {
+	private static Log log = LogFactory.getLog(App.class);
 	private static FileProcessorFacade fileProcessor = new FileProcessorFacadeImpl();
 	
 	public static void main(String[] args) {
-		log.debug("initializing...");
-		Logger.getLogger("org.jaudiotagger").setLevel(Level.OFF);
+		if (args.length != 2) {
+			log.error("waiting for exactly two arguments");
+			return;
+		}
+		for (String arg : args) {
+			if (!new File(arg).isDirectory()) {
+				log.error("at least one of the arguments is an invalid directory");
+				return;
+			}
+		}
 		
+		log.info("initializing...");
 		try {
-			fileProcessor.processFile(Arrays.asList(args));
+			fileProcessor.processFile(args[0], args[1]);
 		} catch (Exception e) {
-			log.error("error when processing file", e);			
+			log.error("error when processing file", e);
 		}
 	}
-
 }

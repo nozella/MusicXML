@@ -43,6 +43,6 @@ public class Music {
 
 	@Override
 	public String toString() {
-		return String.format("Music [tiltle=%s]", tiltle);
+		return String.format("Music [tiltle=%s]", this.getTiltle());
 	}
 }
