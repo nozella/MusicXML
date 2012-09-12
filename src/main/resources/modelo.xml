@@ -1,9 +1,44 @@
-<artist>
-	<name></name>
-	<album>
+<library>
+	<artist>
 		<name></name>
-		<music>
+		<album>
 			<name></name>
-		</music>
-	</album>
-</artist>
+			<music>
+				<tiltle></tiltle>
+			</music>
+			<music>
+				<tiltle></tiltle>
+			</music>
+		</album>
+		<album>
+			<name></name>
+			<music>
+				<tiltle></tiltle>
+			</music>
+			<music>
+				<tiltle></tiltle>
+			</music>
+		</album>
+	</artist>
+	<artist>
+		<name></name>
+		<album>
+			<name></name>
+			<music>
+				<tiltle></tiltle>
+			</music>
+			<music>
+				<tiltle></tiltle>
+			</music>
+		</album>
+		<album>
+			<name></name>
+			<music>
+				<tiltle></tiltle>
+			</music>
+			<music>
+				<tiltle></tiltle>
+			</music>
+		</album>
+	</artist>
+</library>
