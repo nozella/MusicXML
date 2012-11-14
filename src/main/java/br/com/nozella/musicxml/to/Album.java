@@ -4,22 +4,25 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Album {
+public final class Album {
 
-	private String name;
+	private final String name;
 	private Map<Integer, Music> musics;
 	
 	public Album(String name) {
+		if (name == null) {
+			throw new NullPointerException();
+		}
+		this.name = name;
 		this.musics = new HashMap<Integer, Music>();
-		this.setName(name);
 	}
 	
+	/**
+	 * The name of Album set on constructor
+	 * @return never null
+	 */
 	public String getName() {
 		return this.name;
-	}
-	
-	public void setName(String name) {
-		this.name = name.toUpperCase();
 	}
 	
 	public Collection<Music> getMusics() {
@@ -44,25 +47,19 @@ public class Album {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + this.getName().hashCode();
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Album other = (Album) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+		}
+		if (obj instanceof Album) {
+			return this.getName().equals(((Album) obj).getName());
+		}
+		return false;
 	}
 
 	@Override

@@ -1,44 +1,49 @@
 package br.com.nozella.musicxml.to;
 
-public class Music {
-	
-	private String tiltle;
-	
-	public Music(String tiltle){
-		this.setTiltle(tiltle);
+public final class Music {
+
+	private final String tiltle;
+	private volatile int hashCode;
+
+	/**
+	 * If the parameter is <b>null</b>, throws a  {@link NullPointerException} 
+	 * @param tiltle of the music
+	 */
+	public Music(String tiltle) {
+		/**
+		 * use toString() to throw a NullPointerException if the parameter is null
+		 */
+		this.tiltle = tiltle.toString();
 	}
-	
+
+	/**
+	 * The tiltle of Music set on constructor
+	 * 
+	 * @return never null
+	 */
 	public String getTiltle() {
 		return tiltle;
-	}
-	
-	public void setTiltle(String tiltle) {
-		this.tiltle = tiltle.toUpperCase();
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((tiltle == null) ? 0 : tiltle.hashCode());
+		int result = this.hashCode;
+		if (result == 0) {
+			result = 1;
+			result = 31 * result + this.getTiltle().hashCode();
+		}
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Music other = (Music) obj;
-		if (tiltle == null) {
-			if (other.tiltle != null)
-				return false;
-		} else if (!tiltle.equals(other.tiltle))
-			return false;
-		return true;
+		}
+		if (obj instanceof Music) {
+			return this.getTiltle().equals(((Music) obj).getTiltle());
+		}
+		return false;
 	}
 
 	@Override
