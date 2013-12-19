@@ -117,7 +117,7 @@ public class FileProcessorServiceImpl implements FileProcessorService {
 		return files;
 	}
 
-	private Library generateLibrary(Collection<File> fileList) throws SystemException {
+	private Library generateLibrary(Collection<File> fileList) {
 		log.info(String.format("%s files were found, this process might take a several time", fileList.size()));
 		Library library = new Library();
 		for (File file : fileList) {
