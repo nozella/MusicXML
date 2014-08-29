@@ -1,7 +1,7 @@
 MusicXML
 =========
 
-Criação de arquivo XML baseado nas informa��es de ID3 lidas em arquivos MP3.
+Criacao de arquivo XML baseado nas informa��es de ID3 lidas em arquivos MP3.
 O modelo do XML de sa�da segue o padr�o abaixo:
 
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
