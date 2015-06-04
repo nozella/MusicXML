@@ -2,3 +2,5 @@ target
 .classpath
 .project
 .settings
+musicxml-project.iml
+.idea
