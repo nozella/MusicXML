@@ -5,26 +5,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Library {
-	private Map<Integer, Artist> artists;
+    private Map<Integer, Artist> artists;
 
-	public Library() {
-		this.artists = new HashMap<Integer, Artist>();
-	}
-	public Collection<Artist> getArtists() {
-		return artists.values();
-	}
+    public Library() {
+        this.artists = new HashMap<Integer, Artist>();
+    }
 
-	public void setArtists(Collection<Artist> artists) {
-		for (Artist artist : artists) {
-			this.putArtist(artist);
-		}
-	}
-	
-	public void putArtist(Artist artist) {
-		this.artists.put(artist.getName().hashCode(), artist);
-	}
-	
-	public Artist getArtist(String artistName) {
-		return this.artists.get(artistName.toUpperCase().hashCode());
-	}
+    public Collection<Artist> getArtists() {
+        return artists.values();
+    }
+
+    public void setArtists(Collection<Artist> artists) {
+        for (Artist artist : artists) {
+            this.putArtist(artist);
+        }
+    }
+
+    public void putArtist(Artist artist) {
+        this.artists.put(artist.getName().hashCode(), artist);
+    }
+
+    public Artist getArtist(String artistName) {
+        return this.artists.get(artistName.toUpperCase().hashCode());
+    }
 }
